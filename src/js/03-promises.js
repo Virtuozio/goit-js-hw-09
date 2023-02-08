@@ -9,7 +9,7 @@ function onClick(event) {
   let step = Number(form.elements.step.value);
   let amount = Number(form.elements.amount.value);
   for (let i = 1; i <= amount; i++) {
-    createPromise(i, (firstDelay += step))
+    createPromise(i, firstDelay)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {
           timeout: 3000,
@@ -20,6 +20,7 @@ function onClick(event) {
           timeout: 3000,
         });
       });
+    firstDelay += step;
   }
   form.reset();
 }
