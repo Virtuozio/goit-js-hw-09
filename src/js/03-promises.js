@@ -12,12 +12,12 @@ function onClick(event) {
     createPromise(i, firstDelay)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {
-          timeout: 3000,
+          timeout: 5000,
         });
       })
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, {
-          timeout: 3000,
+          timeout: 5000,
         });
       });
     firstDelay += step;
